@@ -1,8 +1,8 @@
 {
    "sha256_hashes": {
-      "secrets_mgmt.md": "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed",
-      "vault_layout.png": "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed"
+      "secrets_mgmt.md": "2ad1c996fd4781ad6b241866eccc5e7dc34f05d92170168cb9ecbbf64f2fe010",
+      "vault_layout.png": "3dcca687ef12d405cf0578503b758316b4db6e1e58e5740d03aae14af3559554"
    },
-   "timestamp": "2025-05-16_1738:32",
-   "timestamp_linux": 1747442312
+   "timestamp": "2025-05-16_1741:38",
+   "timestamp_linux": 1747442498
 }
