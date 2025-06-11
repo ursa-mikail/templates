@@ -1,0 +1,23 @@
+{
+  "fetched": "2025-05-16T17:48:08-07:00",
+  "files": {
+    "security/confidentiality/go/asymmetric/generate_ecdsa_and_eddsa_certs.go": "610d2ba28171be6ccae6f64f5ef6845c05b4474eca98d2bc139f03e82a9ab96e",
+    "security/confidentiality/python/aes_log_exclusive_access.py": "15019787e87b6473520e92c66cbaec4571d591ce48c7048d58aa11fa10c24622",
+    "security/confidentiality/python/generate_key_split_and_recovery.py": "ff6c5c3c121286443a50e1a7b53aecc299e579c0510ba21c3bb242046236524a",
+    "security/confidentiality/python/readme.md": "ba44ab10881244ca5fd1c198666ea4954b972cacb48be4e4e6212f46f17f2d62",
+    "security/integrity/.DS_Store": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3",
+    "security/integrity/go/asymmetric/readme.md": "24b65b81813af36d6bc1410a0212d96f9335ec08bbff6455fadaeb167ca4f5dc",
+    "security/integrity/go/asymmetric/sign_and_verify_with_ecdsa_and_eddsa_certs.go": "61a22a4cd3696cf4ae218c0aec1dcbd4f5a7cf7fa10792018838f262f48653b6",
+    "security/integrity/go/object_signing.go": "7c36fbb4fd523a6c5be5905edfee7ec1ce434811fd8401d38fba26d6e1fd0b03",
+    "security/integrity/python/object_signing.py": "6499bf1dcdce8edbd16647f769e4b12ba5ac1fd818f9d38a3f370fbf3f9279b2",
+    "security/privacy/garbled_circuit/go/implicit_agreement_using_garbled_circuit_simple.go": "0bed4bd40ba2796cd384f40b8d95b04483c8a3e54c89c2021a62af5c4d97a7d6",
+    "security/privacy/garbled_circuit/python/implicit_agreement_using_garbled_circuit.py": "a490f175e8f341d99df656ed64ff2c4d995e46368164a250fdbb9f2a4500378d",
+    "security/privacy/garbled_circuit/python/implicit_agreement_using_garbled_circuit_simple.py": "72edfdfab216abed23f1db67b6f05fec34d9d4e2f58042a729cf445f71af578b",
+    "security/privacy/garbled_circuit/python/implicit_agreement_using_garbled_circuit_threshold.py": "b2355466c2f24f7b38ccaf57b728c9aa646c062d85dffa5b38e7bcb9243351c6",
+    "security/privacy/garbled_circuit/python/implicit_agreement_using_garbled_circuit_xor.py": "76890ee865968416c236b05de06dec57ac80917f0de39ae1789056e9b78cd9dc",
+    "security/privacy/garbled_circuit/python/implicit_agreement_using_garbled_circuit_xor_enhanced.py": "b39b59891d6598a9ec9b5c218f59c4c4db7dc4dd78aeb6f741e5f5c8430d44b1",
+    "security/privacy/garbled_circuit/readme.md": "93e1806ea8ea13dabadea2cb40649aa6051f322c815d025dec441e9f65effc51"
+  },
+  "hashType": "SHA-256",
+  "source": "https://github.com/ursa-mikail/mechanisms/tree/main/security"
+}
