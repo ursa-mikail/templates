@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package hello;
+
+option go_package = "./hellogrpc";
+
+service Greeter {
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+  rpc SignFile (SignFileRequest) returns (SignFileResponse) {}
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloReply {
+  string message = 1;
+}
+
+message SignFileRequest {
+  bytes file_content = 1;
+  string file_name = 2;
+}
+
+message SignFileResponse {
+  bytes signature = 1;
+  bytes public_key = 2;
+  string algorithm = 3;
+}
