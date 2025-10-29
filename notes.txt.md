@@ -36,22 +36,18 @@ The System is Resilient - Failed encryptions don't corrupt existing data
 Decryption Still Worked - The successfully encrypted chunks from previous runs were preserved
 
 ## This is Actually GOOD Design:
+```
 Fail-Safe: Failed operations don't break the system
-
 Recoverable: Subsequent operations work normally
-
 Data Integrity: Existing encrypted data remains intact
-
 Graceful Degradation: Some chunks fail but system continues
+```
 
 ## In Production, We Want:
 ```
 Retry Logic - Automatically retry failed chunks with new keys
-
 Better Key Allocation - Pre-allocate chunks to keys before starting
-
 Progress Tracking - Track which chunks succeeded/failed
-
 Resume Capability - Continue from failed chunks
 ```
 
