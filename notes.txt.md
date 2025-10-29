@@ -68,7 +68,7 @@ The file encryption system uses double-linked lists to manage encryption keys. T
 This leads to an inconsistent state: one part of the system thinks the old key is still valid for the current operation, while another part has already replaced it with a new key.
 
 ## Formalizing the Problem with GCD
-You are correct to identify this as a mathematical synchronization problem. The core issue is that two processes are operating on the same resource (the key) at different intervals.
+This is a mathematical synchronization problem. The core issue is that 2 processes are operating on the same resource (the key) at different intervals.
 
 Let S be the size limit (in bytes) that triggers a key rotation.
 
