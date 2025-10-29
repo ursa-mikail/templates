@@ -142,3 +142,71 @@ $$\
 C = \left\lfloor \frac{D}{T_{\text{collision}}} \right\rfloor
 \$$
 
+## The Core Synchronization Problem
+2 processes operate on intervals:
+
+Encryption: Every P bytes (chunk size)
+
+Key Rotation: Every K bytes (key size limit)
+
+Conflict Points
+Conflicts occur when:
+
+```text
+n × P = m × K  for integers n, m
+```
+
+This means conflicts happen at common multiples of P and K.
+
+## Using GCD vs LCM
+GCD (Greatest Common Divisor) - The fundamental alignment period:
+
+```text
+GCD(P, K) = largest number that divides both P and K
+```
+
+LCM (Least Common Multiple) - The actual collision interval:
+
+```text
+T_collision = LCM(P, K) = (P × K) / GCD(P, K)
+```
+
+## Why Both Matter
+GCD determines collision severity:
+
+```
+If GCD(P, K) = 1: Only 2 workers can collide at once
+
+If GCD(P, K) = K: All W workers can collide simultaneously
+```
+
+LCM determines collision frequency:
+```
+Small GCD → Large LCM → Rare collisions
+
+Large GCD → Small LCM → Frequent collisions
+```
+
+### Example
+```
+If P = 12 and K = 18:
+
+GCD(12, 18) = 6
+
+LCM(12, 18) = 36
+
+Collisions every 36 bytes
+
+Up to 18/6 = 3 workers can collide
+```
+
+The Optimal Case
+To minimize collisions:
+
+```
+Make GCD(P, K) = 1 (P and K are co-prime)
+
+This gives T_collision = P × K (maximum possible)
+
+And S_collision = min(W, K) (minimum severity)
+```
