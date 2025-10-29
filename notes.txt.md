@@ -8,19 +8,23 @@ All Workers Started Simultaneously - When using 4 workers, they all began proces
 Key Check vs Actual Usage Gap - Each worker checked if the key had space, but by the time they actually encrypted and updated usage, the key was already over-committed
 
 The Sequence:
+```
 Worker 1: Checks key - sees 48MB used, 64GB available ✅
 Worker 2: Checks key - sees 48MB used, 64GB available ✅
 Worker 3: Checks key - sees 48MB used, 64GB available ✅
 Worker 4: Checks key - sees 48MB used, 64GB available ✅
 Worker 5: Checks key - sees 48MB used, 64GB available ✅
 ...and so on for all 21 chunks
+```
 
 But then:
+```
 Worker 1: Actually encrypts chunk 0, updates usage to 49MB
 Worker 2: Actually encrypts chunk 1, updates usage to 50MB
 Worker 3: Actually encrypts chunk 2, updates usage to 51MB
 :
 Worker 8: Tries to update usage but key is already at chunk limit (50 chunks) ❌
+```
 
 ## Why It Recovered:
 The Failed Benchmark Didn't Break Anything - The encryption that failed was just one benchmark run
@@ -63,7 +67,7 @@ The file encryption system uses double-linked lists to manage encryption keys. T
 
 2. Chunk-Based Key Access: Another linked list process is responsible for accessing the key to encrypt individual chunks of a file. During the encryption of a large file, this process repeatedly fetches the same key for each chunk.
 
-## The Race Condition: A collision occurs when the Size-Based Rotation process determines the key has reached its limit and must be rotated at the exact same time that the Chunk-Based Access process is retrieving that same key to encrypt the next chunk of a file.
+#### The Race Condition: A collision occurs when the Size-Based Rotation process determines the key has reached its limit and must be rotated at the exact same time that the Chunk-Based Access process is retrieving that same key to encrypt the next chunk of a file.
 
 This leads to an inconsistent state: one part of the system thinks the old key is still valid for the current operation, while another part has already replaced it with a new key.
 
@@ -117,23 +121,27 @@ Key: Tune Chunk Size (C) and Size Limit (S) to be co-prime (GCD(C, S) = 1) to mi
 
 ### Collision Condition
 A race condition occurs when:
+
 $$\
 \text{Collision} \iff \exists t \in \mathbb{N}: t \cdot P \equiv 0 \pmod{K} \ \wedge \ W > 1
 \$$
 
 ### Collision Period
 The interval between collisions:
+
 $$\
 T_{\text{collision}} = \text{LCM}(P, K)
 \$$
 
 ### Collision Severity
 Number of workers that collide simultaneously:
+
 $$\
 S_{\text{collision}} = \min\left(W, \frac{K}{\text{GCD}(P, K)}\right)
 \$$
 
 ### Number of Collisions
+
 $$\
 C = \left\lfloor \frac{D}{T_{\text{collision}}} \right\rfloor
 \$$
